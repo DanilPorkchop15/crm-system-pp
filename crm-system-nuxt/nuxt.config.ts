@@ -1,7 +1,20 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: false },
-  modules: ["@nuxtjs/tailwindcss", "shadcn-nuxt", "@nuxt/image"],
+  modules: [
+   "@nuxtjs/tailwindcss",
+   "shadcn-nuxt",
+   "@nuxt/image",
+    [
+      "@nuxtjs/google-fonts",
+      {
+        families: {
+          Nunito: [300, 400, 500, 600, 700],
+        },
+      },
+    ],
+    "nuxt-icon"
+  ],
   shadcn: {
     /**
      * Prefix for all the imported component
@@ -12,5 +25,6 @@ export default defineNuxtConfig({
      * @default "./components/ui"
      */
     componentDir: './components/ui'
-  }
+  },
+
 })

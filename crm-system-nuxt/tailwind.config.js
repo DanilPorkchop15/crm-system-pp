@@ -15,10 +15,17 @@ module.exports = {
       },
     },
     extend: {
+      transitionDuration: {
+        DEFAULT: '333ms',
+      },
+      transitionTimingFunction:{
+        DEFAULT: 'cubic-bezier(0.4, 0, 0.2, 1)',
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
+        sidebar: "var(--sidebar)",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
