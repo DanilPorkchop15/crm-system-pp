@@ -6,6 +6,11 @@ const router = useRouter()
 const isLoadingStore = useIsLoadingStore()
 
 onMounted(async () => {
+  const darkMode = useDarkMode();
+  if (darkMode.setupDarkMode) {
+    darkMode.setupDarkMode();
+  }
+  isLoadingStore.set(true)
   try {
     const user = await account.get()
     if (user) {

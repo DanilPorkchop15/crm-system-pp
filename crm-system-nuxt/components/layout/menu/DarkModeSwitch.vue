@@ -6,12 +6,7 @@
 
 <script lang="ts" setup>
 const darkMode = useDarkMode();
-onMounted(() => {
-    if (darkMode.setupDarkMode) {
-      darkMode.setupDarkMode();
-    }
-  }
-)
+
 </script>
 
 <style></style>
