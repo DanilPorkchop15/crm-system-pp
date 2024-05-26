@@ -2,9 +2,9 @@
 export default defineNuxtConfig({
   devtools: { enabled: false },
   modules: [
-   "@nuxtjs/tailwindcss",
-   "shadcn-nuxt",
-   "@nuxt/image",
+    "@nuxtjs/tailwindcss",
+    "shadcn-nuxt",
+    "@nuxt/image",
     [
       "@nuxtjs/google-fonts",
       {
@@ -13,18 +13,22 @@ export default defineNuxtConfig({
         },
       },
     ],
-    "nuxt-icon"
+    "nuxt-icon",
+    "@vueuse/nuxt",
+    "@pinia/nuxt",
   ],
   shadcn: {
     /**
      * Prefix for all the imported component
      */
-    prefix: '',
+    prefix: "",
     /**
      * Directory that the component lives in.
      * @default "./components/ui"
      */
-    componentDir: './components/ui'
+    componentDir: "./components/ui",
   },
-
-})
+  pinia: {
+    storesDirs: ["./stores/**"],
+  }
+});
