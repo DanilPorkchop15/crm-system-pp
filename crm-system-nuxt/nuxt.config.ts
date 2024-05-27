@@ -1,22 +1,19 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: false },
-  modules: [
-    "@nuxtjs/tailwindcss",
-    "shadcn-nuxt",
-    "@nuxt/image",
-    [
-      "@nuxtjs/google-fonts",
-      {
-        families: {
-          Nunito: [300, 400, 500, 600, 700],
-        },
+  modules: ["@nuxt/ui", "shadcn-nuxt", "@nuxt/image", [
+    "@nuxtjs/google-fonts",
+    {
+      families: {
+        Nunito: [300, 400, 500, 600, 700],
       },
-    ],
-    "nuxt-icon",
-    "@vueuse/nuxt",
-    "@pinia/nuxt",
-  ],
+    },
+  ], "@vueuse/nuxt", "@pinia/nuxt", [
+    "@vee-validate/nuxt",
+    {
+      autoImports: true
+    }    
+  ]],
   shadcn: {
     /**
      * Prefix for all the imported component
@@ -30,5 +27,6 @@ export default defineNuxtConfig({
   },
   pinia: {
     storesDirs: ["./stores/**"],
-  }
+  },
+
 });

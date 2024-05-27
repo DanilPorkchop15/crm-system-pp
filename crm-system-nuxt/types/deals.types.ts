@@ -25,7 +25,7 @@ export enum EnumStatus {
 export interface IDeal extends IBaseField {
   name: string
   price: number
-  customer: ICustomer
+  customers: ICustomer
   comments: IComment[]
   status: EnumStatus
 }
