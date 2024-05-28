@@ -87,6 +87,7 @@ const onDrop = (targetColumn: IColumn) => {
               @dragend.prevent="onDragEnd($event)"
               v-for="card in column.items"
               :key="card.id"
+              class="mb-3"
             >
               <CardHeader role="button" @click="store.set(card)">
                 <CardTitle>

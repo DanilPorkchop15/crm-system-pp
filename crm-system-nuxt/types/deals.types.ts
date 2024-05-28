@@ -6,8 +6,8 @@ export interface IBaseField {
 export interface ICustomer extends IBaseField {
   name: string
   email: string
-  avatar_url: string
-  from_source?: string
+  "avatar-url": string
+  "from-source"?: string
 }
 
 export interface IComment extends IBaseField {

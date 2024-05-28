@@ -32,7 +32,7 @@ const card = data as unknown as IDeal;
     <div v-else-if="card">
       <div class="flex items-start mt-5" v-for="comment in card?.comments" :key="comment.$id">
         <Icon name="radix-icons:chat-bubble" class="mr-3 mt-1" size="20"/>
-        <div class="border-border bg-muted rounded p-3 w-full">
+        <div class="border bg-muted rounded p-3 w-full">
           <div class="mb-2 text-sm">
             Comment from {{ dayjs(comment.$createdAt).format('HH:mm, DD MMM') }}
           </div>
