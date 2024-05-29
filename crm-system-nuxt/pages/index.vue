@@ -108,7 +108,7 @@ const onDrop = (targetColumn: IColumn) => {
           </div>
         </div>
       </div>
-      <KanbanSlideover />
+      <KanbanSlideover/>
     </div>
   </div>
 </template>

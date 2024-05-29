@@ -5,6 +5,13 @@ const isLocalOpen = computed({
   get: () => store.isOpen,
   set: (value) => (store.isOpen = value),
 });
+
+const emit = defineEmits(['deleteDeal']);
+
+const handleDelete = () => {
+  emit('deleteDeal');
+};
+
 </script>
 
 <template>
@@ -21,7 +28,7 @@ const isLocalOpen = computed({
         }"
       >
         <template #header>
-          <KanbanSlideoverTop />
+          <KanbanSlideoverTop @delete-deal="handleDelete()" />
         </template>
         <KanbanSlideoverComments />
       </UCard>

@@ -36,6 +36,7 @@ const login = async () => {
 }
 
 const register = async () => {
+  if (!emailRef.value || !passwordRef.value || !nameRef.value) { alert('Please fill in all fields'); return }
   await account.create(uuidv5(emailRef.value, uuidv5.DNS),
     emailRef.value,
     passwordRef.value,
@@ -52,12 +53,12 @@ const register = async () => {
       <h1 class="text-2xl font-bold text-center mb-5">
         Login
       </h1>
-      <form>
+      <form @submit.prevent="login">
         <Input placeholder="Email" type="email" class="mb-3" v-model="emailRef" autocomplete="email"/>
-        <Input placeholder="Password" type="password" class="mb-3" v-model="passwordRef" autocomplete="current-password"/>
-        <Input placeholder="Name" type="text" class="mb-3" v-model="nameRef" autocomplete="first-name"/>
+        <Input required placeholder="••••••••" type="password" class="mb-3" v-model="passwordRef" autocomplete="current-password"/>
+        <Input required placeholder="Name" type="text" class="mb-3" v-model="nameRef" autocomplete="first-name"/>
         <div class="flex items-center gap-5 justify-center">
-          <Button variant="outline" type="button" @click="login">
+          <Button variant="outline" type="submit">
             Login
           </Button>
           <Button variant="outline" type="button" @click="register">

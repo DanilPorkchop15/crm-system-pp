@@ -78,6 +78,9 @@ const onSubmit = handleSubmit((data) => {
       v-bind="nameAttrs"
       type="text"
       class="input"
+      required
+      autofocus
+      tabindex="0"
     />
     <Input
       placeholder="Price"
@@ -85,6 +88,9 @@ const onSubmit = handleSubmit((data) => {
       v-bind="priceAttrs"
       type="number"
       class="input"
+      required
+      min="0"
+      max="1000000000"
     />
     <Input
       placeholder="Customer name"
@@ -92,6 +98,7 @@ const onSubmit = handleSubmit((data) => {
       v-bind="customerNameAttrs"
       type="text"
       class="input"
+      required
     />
     <Input
       placeholder="Customer email"
@@ -99,6 +106,7 @@ const onSubmit = handleSubmit((data) => {
       v-bind="customerEmailAttrs"
       type="email"
       class="input"
+      required
     />
     <Button
       variant="outline"

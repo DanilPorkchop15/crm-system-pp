@@ -21,7 +21,7 @@ const logout = async () => {
         src="/logo.svg"
         alt="logo"
         width="100px"
-        class="mx-auto dark:brightness-200"
+        class="mx-auto hue-rotate-0 transition-[filter] dark:hue-rotate-[100deg]"
       />
     </NuxtLink>
     <Button
