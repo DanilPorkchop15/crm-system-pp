@@ -17,20 +17,22 @@ const nameRef = ref('')
 
 const login = async () => {
   isLoadingStore.set(true)
-  await account.createEmailPasswordSession(emailRef.value, passwordRef.value)
-  const response = await account.get()
-  if (response) {
+  await account.createEmailPasswordSession(emailRef.value, passwordRef.value).catch(() => {
+    isLoadingStore.set(false)
+    return
+  })
+  await account.get().then(async (response) => {
+    if (!response) return
     authStore.set({
       name: response.name,
       email: response.email,
       status: response.status
     })
-  }
-  emailRef.value = ''
-  passwordRef.value = ''
-  nameRef.value = ''
-  await navigateTo('/')
-  isLoadingStore.set(false)
+    await navigateTo('/')
+    isLoadingStore.set(false)
+  }).catch(() => {
+    isLoadingStore.set(false)
+  })
 }
 
 const register = async () => {
@@ -39,7 +41,7 @@ const register = async () => {
     passwordRef.value,
     nameRef.value
   )
-  await login().catch(() => {navigateTo('/login')})
+  await login()
 }
 
 </script>
