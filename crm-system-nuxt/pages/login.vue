@@ -10,7 +10,6 @@ useSeoMeta({
 
 const isLoadingStore = useIsLoadingStore()
 const authStore = useAuthStore()
-const router = useRouter()
 
 const emailRef = ref('')
 const passwordRef = ref('')
@@ -30,7 +29,7 @@ const login = async () => {
   emailRef.value = ''
   passwordRef.value = ''
   nameRef.value = ''
-  await router.push('/')
+  await navigateTo('/')
   isLoadingStore.set(false)
 }
 
@@ -40,7 +39,7 @@ const register = async () => {
     passwordRef.value,
     nameRef.value
   )
-  await login()
+  await login().catch(() => {navigateTo('/login')})
 }
 
 </script>

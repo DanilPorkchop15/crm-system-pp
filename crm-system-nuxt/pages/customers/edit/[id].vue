@@ -110,7 +110,7 @@ onUnmounted(() => {
       <img
         v-if="values['avatar-url'] || isUploadPending"
         :src="values['avatar-url']"
-        class="w-12 h-12 rounded-full"
+        class="w-20 h-20 rounded-full mb-3 "
       />
       <div class="grid w-full max-w-sm items center gap-1.5 input">
         <label>
