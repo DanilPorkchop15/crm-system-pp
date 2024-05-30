@@ -23,14 +23,18 @@ onMounted(async () => {
   } finally {
     isLoadingStore.set(false);
   }
-
 });
 </script>
 
 <template>
-  <div class="mobile-not-supported w-screen h-screen flex flex-col items-center justify-center" v-if="isMobile">
-    <Icon name="carbon:warning-alt" class="text-5xl text-destructive" />
-    <p class="text-center text-xl font-bold">Sorry, mobile is not supported yet</p>
+  <div
+    class="mobile-not-supported w-screen h-screen flex flex-col justify-center"
+    v-if="isMobile"
+  >
+    <Icon name="carbon:warning-alt" class="text-5xl text-destructive mx-auto" />
+    <p class="text-center text-xl font-bold">
+      Sorry, mobile is not supported yet
+    </p>
   </div>
   <div class="" v-else>
     <LayoutLoader v-if="isLoadingStore.isLoading" />
@@ -50,6 +54,4 @@ onMounted(async () => {
 }
 </style>
 
-function useIsMobile() {
-  throw new Error("Function not implemented.");
-}
+function useIsMobile() { throw new Error("Function not implemented."); }
