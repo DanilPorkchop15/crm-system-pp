@@ -1,44 +1,55 @@
 <script setup lang="ts">
-import { account } from '~/lib/appwrite';
+import { account } from "~/lib/appwrite";
 
-const authStore = useAuthStore()
-const router = useRouter()
-const isLoadingStore = useIsLoadingStore()
+const authStore = useAuthStore();
+const router = useRouter();
+const isLoadingStore = useIsLoadingStore();
+
+const isMobile = useIsMobile();
 
 onMounted(async () => {
   const darkMode = useDarkMode();
   if (darkMode.setupDarkMode) {
     darkMode.setupDarkMode();
   }
-  isLoadingStore.set(true)
+  isLoadingStore.set(true);
   try {
-    const user = await account.get()
+    const user = await account.get();
     if (user) {
-      authStore.set(user)
+      authStore.set(user);
     }
   } catch {
-    router.push('/login')
+    router.push("/login");
   } finally {
-    isLoadingStore.set(false)
+    isLoadingStore.set(false);
   }
-})
 
+});
 </script>
 
 <template>
-<LayoutLoader v-if="isLoadingStore.isLoading"/>
-<section :class="{grid: authStore.isAuth}" style="height: 100dvh" v-else>
-  <LayoutSidebar v-if="authStore.isAuth"/>
-  <div>
-    <slot/>
+  <div class="mobile-not-supported w-screen h-screen flex flex-col items-center justify-center" v-if="isMobile">
+    <Icon name="carbon:warning-alt" class="text-5xl text-destructive" />
+    <p class="text-center text-xl font-bold">Sorry, mobile is not supported yet</p>
   </div>
-</section>
+  <div class="" v-else>
+    <LayoutLoader v-if="isLoadingStore.isLoading" />
+    <section :class="{ grid: authStore.isAuth }" style="height: 100dvh" v-else>
+      <LayoutSidebar v-if="authStore.isAuth" />
+      <div>
+        <slot />
+      </div>
+    </section>
+  </div>
 </template>
 
 <style scoped>
 .grid {
   display: grid;
   grid-template-columns: 1fr 6fr;
-
 }
 </style>
+
+function useIsMobile() {
+  throw new Error("Function not implemented.");
+}
