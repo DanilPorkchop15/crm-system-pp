@@ -28,13 +28,15 @@ onMounted(async () => {
 
 <template>
   <div
-    class="mobile-not-supported w-screen h-screen flex flex-col justify-center"
+    class="mobile-not-supported w-screen h-screen flex flex-col pb-auto"
     v-if="isMobile"
   >
+  <div class="text-center">
     <Icon name="carbon:warning-alt" class="text-5xl text-destructive mx-auto" />
     <p class="text-center text-xl font-bold">
       Sorry, mobile is not supported yet
     </p>
+  </div>
   </div>
   <div class="" v-else>
     <LayoutLoader v-if="isLoadingStore.isLoading" />
