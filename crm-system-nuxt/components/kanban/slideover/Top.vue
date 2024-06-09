@@ -20,12 +20,12 @@ const { deleteDeal, isPendingDelete } = useDealDelete()
     <KanbanSlideoverLabel label-text="Customer">
       {{ store.card?.companyName }}
     </KanbanSlideoverLabel>
-    <KanbanSlideoverLabel label-text="Name">
+    <KanbanSlideoverLabel label-text="Date">
       {{  dayjs(store.card?.$createdAt).format('DD MMMM YYYY') }}
     </KanbanSlideoverLabel>
     <Button variant="destructive" class="w-full" :disabled="isPendingDelete" @click="store.card && deleteDeal(store.card.id)">
       <Icon name="radix-icons:trash" class="mr-3 text-xl" />
-      {{ isPendingDelete ? 'Deleting...' : 'Delete deal' }}
+      {{ isPendingDelete ? 'Deleting...' : 'Delete deal' }} 
     </Button>
   </div>
 </template>

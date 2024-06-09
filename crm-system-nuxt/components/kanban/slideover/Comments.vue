@@ -5,7 +5,7 @@ import { useCommentCreate } from "./useCommentCreate";
 import { useCommentsQuery } from "./useCommentsQuery";
 
 const { data, refetch, isLoading } = useCommentsQuery();
-const { commentRef, writeComment, isPending } = useCommentCreate({refetch});
+const { commentRef, writeComment, isPending } = useCommentCreate({ refetch });
 
 const card = data as unknown as IDeal;
 </script>
@@ -13,7 +13,7 @@ const card = data as unknown as IDeal;
 <template>
   <div>
     <Input
-      placeholder="Write comment"
+      :placeholder="$t('comment - write')"
       v-model="commentRef"
       type="text"
       class="input mb-1"
@@ -26,15 +26,20 @@ const card = data as unknown as IDeal;
       :disabled="isLoading"
       @click="writeComment"
     >
-      {{ isPending ? "Saving..." : "Save" }}
+      {{ isPending ? $t("saving") : $t("save") }}
     </Button>
     <Skeleton v-if="isLoading" class="w-full, h-[76px] rounded mt-5" />
     <div v-else-if="card">
-      <div class="flex items-start mt-5" v-for="comment in card?.comments" :key="comment.$id">
-        <Icon name="radix-icons:chat-bubble" class="mr-3 mt-1" size="20"/>
+      <div
+        class="flex items-start mt-5"
+        v-for="comment in card?.comments"
+        :key="comment.$id"
+      >
+        <Icon name="radix-icons:chat-bubble" class="mr-3 mt-1" size="20" />
         <div class="border bg-muted rounded p-3 w-full">
           <div class="mb-2 text-sm">
-            Comment from {{ dayjs(comment.$createdAt).format('HH:mm, DD MMM') }}
+            {{ $t("comment-from") }}
+            {{ dayjs(comment.$createdAt).format("HH:mm, DD MMM") }}
           </div>
           <p>{{ comment.text }}</p>
         </div>

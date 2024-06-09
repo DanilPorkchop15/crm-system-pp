@@ -21,6 +21,7 @@ export default defineNuxtConfig({
         autoImports: true,
       },
     ],
+    "@nuxtjs/i18n",
   ],
   shadcn: {
     /**
@@ -41,7 +42,40 @@ export default defineNuxtConfig({
       title: "CRM System",
       meta: [{ name: "description", content: "CRM System" }],
       link: [{ rel: "icon", type: "image/x-icon", href: "favicon.ico" }],
+      htmlAttrs: { lang: "en" },
     },
     pageTransition: { name: "page", mode: "out-in" },
+  },
+  i18n: {
+    strategy: "prefix_except_default",
+    defaultLocale: "ru",
+    detectBrowserLanguage: false,
+    langDir: "lang",
+    locales: [
+      {
+        code: "ru",
+        iso: "ru-RU",
+        name: "Русский",
+        file: "ru-RU.json",
+      },
+      {
+        code: "en",
+        iso: "en-US",
+        name: "English",
+        file: "en-US.json",
+      },
+      {
+        code: "es",
+        iso: "es-ES",
+        name: "Español",
+        file: "es-ES.json",
+      },
+      {
+        code: "cn",
+        iso: "cn-CN",
+        name: "简体中文",
+        file: "cn-CN.json",
+      },
+    ],
   },
 });

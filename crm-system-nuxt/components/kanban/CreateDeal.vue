@@ -73,7 +73,7 @@ const onSubmit = handleSubmit((data) => {
   </div>
   <form v-if="isOpenForm" @submit.prevent="onSubmit" class="form">
     <Input
-      placeholder="Deal name"
+      :placeholder="$t('create-deal-name')"
       v-model="name"
       v-bind="nameAttrs"
       type="text"
@@ -83,7 +83,7 @@ const onSubmit = handleSubmit((data) => {
       tabindex="0"
     />
     <Input
-      placeholder="Price"
+      :placeholder="$t('create-deal-price')"
       v-model="price"
       v-bind="priceAttrs"
       type="number"
@@ -93,7 +93,7 @@ const onSubmit = handleSubmit((data) => {
       max="1000000000"
     />
     <Input
-      placeholder="Customer name"
+      :placeholder="$t('create-deal-customer-name')"
       v-model="customerName"
       v-bind="customerNameAttrs"
       type="text"
@@ -101,7 +101,7 @@ const onSubmit = handleSubmit((data) => {
       required
     />
     <Input
-      placeholder="Customer email"
+      :placeholder="$t('create-deal-customer-email')"
       v-model="customerEmail"
       v-bind="customerEmailAttrs"
       type="email"
@@ -114,7 +114,7 @@ const onSubmit = handleSubmit((data) => {
       class="w-full"
       :disabled="isPending"
     >
-      {{ isPending ? "Saving..." : "Save" }}
+      {{ isPending ? $t("saving") : $t("save") }}
     </Button>
   </form>
 </template>

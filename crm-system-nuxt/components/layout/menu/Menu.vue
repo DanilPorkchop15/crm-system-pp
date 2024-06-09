@@ -12,7 +12,7 @@ import { MENU_DATA } from "./menu.data";
         class="flex items-center py-2 px-3 rounded-lg hover:shadow transition-all mb-3 hover:bg-primaryCN hover:text-background"
       >
         <Icon :name="item.icon" class="text-2xl" />
-        <span class="ml-3">{{ item.name }}</span>
+        <span class="ml-3">{{ $t(item.name) }}</span>
       </NuxtLink>
     </div>
     <div class="flex py-1 px-3 items-center">

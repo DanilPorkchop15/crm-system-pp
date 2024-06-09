@@ -61,10 +61,10 @@ const onDrop = (targetColumn: IColumn) => {
 
 <template>
   <div class="p-10">
-    <h1 class="text-xl font-bold mb-10">CRM system by Danil Kostin</h1>
-    <div v-if="isLoading">Loading...</div>
+    <h1 class="text-xl font-bold mb-10">{{ $t("home-title") }}</h1>
+    <div v-if="isLoading"> {{ $t("loading") }}</div>
     <div v-else>
-      <div class="grid grid-cols-5 gap-12">
+      <div class="grid grid-cols-5 lg:gap-12 md:gap-3">
         <div
           class="min-h-[80vh]"
           v-for="(column, index) in data"
@@ -73,7 +73,7 @@ const onDrop = (targetColumn: IColumn) => {
           @drop.prevent="onDrop(column)"
         >
           <div
-            class="rounded bg-secondary text-foreground py-1 px-5 mb-2 text-center"
+            class="rounded bg-secondary text-foreground py-1 lg:px-5 md:px-0 mb-2 text-center"
             :style="generateColumnGradient(index, data?.length)"
           >
             {{ column.name }}
@@ -82,12 +82,12 @@ const onDrop = (targetColumn: IColumn) => {
             <KanbanCreateDeal :status="column.id" :refetch="refetch" />
             <Card
               draggable="true"
-              style="cursor: grab"
               @dragstart="onDragStart($event, card, column)"
               @dragend.prevent="onDragEnd($event)"
               v-for="card in column.items"
               :key="card.id"
-              class="mb-3"
+              class="mb-3 break-words"
+              style="cursor: grab; cursor: -moz-grab; cursor: -webkit-grab;"
             >
               <CardHeader role="button" @click="store.set(card)">
                 <CardTitle>
@@ -98,11 +98,11 @@ const onDrop = (targetColumn: IColumn) => {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <div>Компания</div>
+                <div>{{ $t("home-company") }}: </div>
                 {{ card.companyName }}
               </CardContent>
               <CardFooter>
-                {{ dayjs(card.$createdAt).format("DD MMMM YYYY") }}
+                {{ dayjs(card.$createdAt).format("DD - MM - YYYY") }}
               </CardFooter>
             </Card>
           </div>
