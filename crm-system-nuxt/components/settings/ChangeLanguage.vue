@@ -1,12 +1,16 @@
 <script lang="ts" setup>
 const { availableLocales, locale } = useI18n();
 const selectedLocale = ref(locale.value);
+
 const setLocale = async () => {
   console.log(selectedLocale.value);
-  await navigateTo((selectedLocale.value === "ru" ? "" : selectedLocale.value) + "/settings");
+  locale.value = selectedLocale.value;
+  await navigateTo("/settings");
 };
 
-watch(selectedLocale, setLocale);
+watch(selectedLocale, () => {
+  selectedLocale.value !== "" && setLocale();
+});
 </script>
 
 <template>
