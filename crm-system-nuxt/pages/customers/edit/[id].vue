@@ -125,11 +125,10 @@ onUnmounted(() => {
       <Button
         type="submit"
         variant="outline"
-        class=""
         size="lg"
-        :disabled="isPending"
+        :disabled="isPending || isUploadPending"
       >
-        {{ isPending ? "Saving..." : "Save" }}
+        {{ isPending || isUploadPending ? $t("saving") : $t("save") }}
       </Button>
     </form>
   </div>

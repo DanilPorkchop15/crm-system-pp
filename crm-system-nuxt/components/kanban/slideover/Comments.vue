@@ -13,7 +13,7 @@ const card = data as unknown as IDeal;
 <template>
   <div>
     <Input
-      :placeholder="$t('comment - write')"
+      :placeholder="$t('comment-write')"
       v-model="commentRef"
       type="text"
       class="input mb-1"

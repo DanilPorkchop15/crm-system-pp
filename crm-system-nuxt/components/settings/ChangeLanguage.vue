@@ -4,8 +4,8 @@ const selectedLocale = ref(locale.value);
 
 const setLocale = async () => {
   console.log(selectedLocale.value);
-  locale.value = selectedLocale.value;
-  await navigateTo("/settings");
+  locale.value = selectedLocale.value
+  await navigateTo("/settings", { replace: true });
 };
 
 watch(selectedLocale, () => {

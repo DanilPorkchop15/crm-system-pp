@@ -3,19 +3,19 @@ import { account } from "~/lib/appwrite";
 
 const isLoadingStore = useIsLoadingStore();
 const authStore = useAuthStore();
-
+const localePath = useLocalePath();
 const logout = async () => {
   isLoadingStore.set(true);
   await account.deleteSession("current");
   authStore.clear();
-  await navigateTo("/login");
+  await navigateTo(localePath("/login"));
   isLoadingStore.set(false);
 };
 </script>
 
 <template>
   <aside class="px-5 py-8 bg-sidebar h-full relative">
-    <NuxtLink to="/" class="block mb-10">
+    <NuxtLink :to="localePath('/')" class="block mb-10">
       <img
         preload
         src="/logo.svg"
