@@ -60,11 +60,11 @@ const onDrop = (targetColumn: IColumn) => {
 </script>
 
 <template>
-  <div class="p-10">
+  <div>
     <h1 class="text-xl font-bold mb-10">{{ $t("home-title") }}</h1>
     <div v-if="isLoading"> {{ $t("loading") }}</div>
     <div v-else>
-      <div class="grid grid-cols-5 lg:gap-12 md:gap-3">
+      <div class="grid grid-cols-5 lg:gap-[3%] md:gap-3">
         <div
           class="min-h-[80vh]"
           v-for="(column, index) in data"
@@ -76,7 +76,7 @@ const onDrop = (targetColumn: IColumn) => {
             class="rounded bg-secondary text-foreground py-1 lg:px-5 md:px-0 mb-2 text-center"
             :style="generateColumnGradient(index, data?.length)"
           >
-            {{ column.name }}
+            {{ $t(`deal-status.${column.id}`) }}
           </div>
           <div class="">
             <KanbanCreateDeal :status="column.id" :refetch="refetch" />

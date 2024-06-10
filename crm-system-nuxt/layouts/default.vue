@@ -32,7 +32,7 @@ onMounted(async () => {
     <LayoutLoader v-if="isLoadingStore.isLoading" />
     <section :class="{ grid: authStore.isAuth }" style="height: 100dvh" v-else>
       <LayoutSidebar v-if="authStore.isAuth" />
-      <div>
+      <div class="p-10">
         <slot />
       </div>
     </section>

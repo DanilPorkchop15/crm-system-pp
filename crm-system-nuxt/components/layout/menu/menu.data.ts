@@ -16,6 +16,16 @@ export const MENU_DATA: IMenuItem[] = [
     icon: "mingcute:group-line",
   },
   {
+    name: "about",
+    href: "/about",
+    icon: "fluent:receipt-28-regular",
+  },
+  {
+    name: "help",
+    href: "/help",
+    icon: "radix-icons:question-mark",
+  },
+  {
     name: "feedback",
     href: "/feedback",
     icon: "fluent:person-feedback-48-regular",
@@ -24,15 +34,5 @@ export const MENU_DATA: IMenuItem[] = [
     name: "settings",
     href: "/settings",
     icon: "fluent:settings-24-regular",
-  },
-  {
-    name: "about",
-    href: "/orders",
-    icon: "fluent:receipt-28-regular",
-  },
-  {
-    name: "help",
-    href: "/help",
-    icon: "radix-icons:question-mark",
   },
 ];

@@ -51,18 +51,18 @@ const register = async () => {
   <div class=" flex items-center justify-center min-h-screen w-full">
     <div class="rounded bg-sidebar w-1/4 p-5 shadow">
       <h1 class="text-2xl font-bold text-center mb-5">
-        Login
+        {{ $t("login-title") }}
       </h1>
       <form @submit.prevent="login">
-        <Input placeholder="Email" type="email" class="mb-3" v-model="emailRef" autocomplete="email"/>
+        <Input :placeholder="$t('email')" type="email" class="mb-3" v-model="emailRef" autocomplete="email"/>
         <Input required placeholder="••••••••" type="password" class="mb-3" v-model="passwordRef" autocomplete="current-password"/>
-        <Input required placeholder="Name" type="text" class="mb-3" v-model="nameRef" autocomplete="first-name"/>
+        <Input required :placeholder="$t('name')" type="text" class="mb-3" v-model="nameRef" autocomplete="first-name"/>
         <div class="flex items-center gap-5 justify-center">
           <Button variant="outline" type="submit">
-            Login
+            {{$t("login")}}
           </Button>
           <Button variant="outline" type="button" @click="register">
-            Register
+            {{$t("register")}}
           </Button>
         </div>
       </form>

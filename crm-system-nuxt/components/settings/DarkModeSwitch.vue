@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Button @click="darkMode.toggleDarkMode" size="sm" variant="outline">Switch theme</Button>
+    <Button @click="darkMode.toggleDarkMode">{{ $t("change-theme") }}</Button>
   </div>
 </template>
 

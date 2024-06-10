@@ -82,7 +82,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="p-10">
+  <div>
     <h1 class="font-bold text-2xl mb-10">Edit customer: {{ data?.name }}</h1>
     <div class="loading" v-if="isLoading">loading...</div>
     <form @submit.prevent="onSubmit" class="form" v-else>
@@ -114,7 +114,7 @@ onUnmounted(() => {
       />
       <div class="grid w-full max-w-sm items center gap-1.5 input">
         <label>
-          <div class="text-sm mb">Logo</div>
+          <div class="text-sm mb">{{$t("logo")}}</div>
           <Input
             type="file"
             @change="onFileChange($event)"
