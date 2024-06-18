@@ -5,6 +5,7 @@ useSeoMeta({
 });
 
 const { data, isLoading, refetch } = useCustomersQuery();
+const localePath = useLocalePath();
 </script>
 
 <template>
@@ -24,7 +25,7 @@ const { data, isLoading, refetch } = useCustomersQuery();
         <TableBody>
           <TableRow v-for="customer in data?.documents" :key="customer.$id">
             <TableCell>
-              <NuxtLink :to="`/customers/edit/${customer.$id}`">
+              <NuxtLink :to="localePath(`/customers/edit/${customer.$id}`)">
                 <img
                   :src="customer['avatar-url']"
                   :alt="customer.name"

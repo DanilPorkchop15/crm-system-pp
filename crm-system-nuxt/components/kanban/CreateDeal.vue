@@ -19,7 +19,7 @@ interface IProps {
 }
 
 const props = withDefaults(defineProps<IProps>(), {
-  status: "",
+  status: ""е ,
 });
 const isOpenForm = ref(false);
 

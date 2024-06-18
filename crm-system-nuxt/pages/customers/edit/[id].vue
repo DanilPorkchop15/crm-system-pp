@@ -2,7 +2,7 @@
 import type {
   ICustomerFormState,
   InputFileEvent,
-} from "../../../composables/editCustomer.types";
+} from "@/types/editCustomer.types";
 import { useMutation } from "@tanstack/vue-query";
 import { storage } from "~/lib/appwrite";
 import { STORAGE_ID } from "~/app.constants";
@@ -89,21 +89,21 @@ onUnmounted(() => {
       <Input
         v-model="name"
         v-bind="nameAttrs"
-        placeholder="Name"
+        :placeholder="$t('name')"
         type="text"
         class="input"
       />
       <Input
         v-model="email"
         v-bind="emailAttrs"
-        placeholder="Email"
+        :placeholder="$t('email')"
         type="email"
         class="input"
       />
       <Input
         v-model="fromSource"
         v-bind="fromSourceAttrs"
-        placeholder="From source"
+        :placeholder="$t('from-source')"
         type="text"
         class="input"
       />

@@ -1,4 +1,4 @@
-import type { ICustomerFormState } from './editCustomer.types';
+import type { ICustomerFormState } from '@/types/editCustomer.types';
 import { useMutation } from "@tanstack/vue-query";
 import { DB_ID, COLLECTIONS_CUSTOMERS } from "~/app.constants";
 import { DB } from "~/lib/appwrite";
