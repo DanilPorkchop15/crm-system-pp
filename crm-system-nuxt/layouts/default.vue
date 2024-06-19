@@ -4,6 +4,7 @@ import { account } from "~/lib/appwrite";
 const authStore = useAuthStore();
 const router = useRouter();
 const isLoadingStore = useIsLoadingStore();
+const localePath = useLocalePath();
 
 const isMobile = useIsMobile();
 
@@ -19,7 +20,7 @@ onMounted(async () => {
       authStore.set(user);
     }
   } catch {
-    router.push("/login");
+    router.push(localePath("/login"));
   } finally {
     isLoadingStore.set(false);
   }
@@ -45,5 +46,3 @@ onMounted(async () => {
   grid-template-columns: 1fr 6fr;
 }
 </style>
-
-function useIsMobile() { throw new Error("Function not implemented."); }
