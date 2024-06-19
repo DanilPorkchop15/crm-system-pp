@@ -29,14 +29,14 @@ const { data, isLoading, refetch, isSuccess } = useCustomerByIdQuery(
 );
 
 const updateFormData = () => {
-    const initialData = data.value as unknown as ICustomerFormState;
-    setValues({
-      name: initialData.name,
-      email: initialData.email,
-      "avatar-url": initialData["avatar-url"],
-      "from-source": initialData["from-source"] || "",
-    });
-}
+  const initialData = data.value as unknown as ICustomerFormState;
+  setValues({
+    name: initialData.name,
+    email: initialData.email,
+    "avatar-url": initialData["avatar-url"],
+    "from-source": initialData["from-source"] || "",
+  });
+};
 
 watch(isSuccess, () => {
   if (isSuccess.value) {
@@ -110,11 +110,11 @@ onUnmounted(() => {
       <img
         v-if="values['avatar-url'] || isUploadPending"
         :src="values['avatar-url']"
-        class="w-20 h-20 rounded-full mb-3 "
+        class="w-20 h-20 rounded-full mb-3"
       />
       <div class="grid w-full max-w-sm items center gap-1.5 input">
         <label>
-          <div class="text-sm mb">{{$t("logo")}}</div>
+          <div class="text-sm mb">{{ $t("logo") }}</div>
           <Input
             type="file"
             @change="onFileChange($event)"

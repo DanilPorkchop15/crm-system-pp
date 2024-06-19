@@ -62,7 +62,7 @@ const onDrop = (targetColumn: IColumn) => {
 <template>
   <div>
     <h1 class="text-xl font-bold mb-10">{{ $t("home-title") }}</h1>
-    <div v-if="isLoading"> {{ $t("loading") }}</div>
+    <div v-if="isLoading">{{ $t("loading") }}</div>
     <div v-else>
       <div class="grid grid-cols-5 lg:gap-[3%] md:gap-3">
         <div
@@ -87,7 +87,7 @@ const onDrop = (targetColumn: IColumn) => {
               v-for="card in column.items"
               :key="card.id"
               class="mb-3 break-words"
-              style="cursor: grab; cursor: -moz-grab; cursor: -webkit-grab;"
+              style="cursor: grab; cursor: -moz-grab; cursor: -webkit-grab"
             >
               <CardHeader role="button" @click="store.set(card)">
                 <CardTitle>
@@ -98,7 +98,7 @@ const onDrop = (targetColumn: IColumn) => {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <div>{{ $t("home-company") }}: </div>
+                <div>{{ $t("home-company") }}:</div>
                 {{ card.companyName }}
               </CardContent>
               <CardFooter>
@@ -108,7 +108,7 @@ const onDrop = (targetColumn: IColumn) => {
           </div>
         </div>
       </div>
-      <KanbanSlideover/>
+      <KanbanSlideover />
     </div>
   </div>
 </template>
